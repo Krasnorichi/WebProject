@@ -1,0 +1,61 @@
+
+{% extends "app/layout.html" %}
+
+{% block content %}
+
+<!--<h2>{{ title }}</h2>-->
+
+<div class="row">
+<div class="col-lg-3">
+    <div class="shadow card">
+        <div class="card-header">
+            <h5 class="card-title">Поиск</h5>
+        </div>
+        <div class="card-body">
+            <form action="" method="post">
+                {% csrf_token %}
+                {{ form }}
+                <br/>
+                <button type="submit" class="btn btn-primary">Поиск</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-9">
+    {#<div class="row">#}
+        {#</div>#}
+<p/>
+
+    <div>
+    <table class="shadow table table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th class="col-md-6">ФИО</th>
+                <th class="col-md-2">Школа</th>
+                <th class="col-md-1">Класс</th>
+                {#<th></th>#}
+            </tr>
+        </thead>
+        <tbody>
+        {% for pup in pupils %}
+            <tr>
+                <td>{{pup.fio}}</td>
+                <td>{{pup.school}}</td>
+                <td>{{pup.cls}}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+</div>
+</div>
+<div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+    <div class="wave"></div>
+</div>
+
+
+{% endblock %}
+
